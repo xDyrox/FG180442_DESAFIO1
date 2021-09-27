@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DesafioPractico.Models.transacciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cuentaBancaria_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoTransaccion_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaTransaccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAplicacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuentaBancaria_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoTransaccion_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaTransaccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAplicacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

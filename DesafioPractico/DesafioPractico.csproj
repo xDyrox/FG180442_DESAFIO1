@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,10 +128,26 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\clientesController.cs" />
+    <Compile Include="Controllers\cuentasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\tcuentasController.cs" />
+    <Compile Include="Controllers\transaccionesController.cs" />
+    <Compile Include="Controllers\t_transaccionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109272256510_MigracionInicial.cs" />
+    <Compile Include="Migrations\202109272256510_MigracionInicial.Designer.cs">
+      <DependentUpon>202109272256510_MigracionInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\banco.cs" />
+    <Compile Include="Models\cliente.cs" />
+    <Compile Include="Models\cuenta.cs" />
+    <Compile Include="Models\tcuenta.cs" />
+    <Compile Include="Models\transacciones.cs" />
+    <Compile Include="Models\t_transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,10 +186,34 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\clientes\Create.cshtml" />
+    <Content Include="Views\clientes\Delete.cshtml" />
+    <Content Include="Views\clientes\Details.cshtml" />
+    <Content Include="Views\clientes\Edit.cshtml" />
+    <Content Include="Views\clientes\Index.cshtml" />
+    <Content Include="Views\cuentas\Create.cshtml" />
+    <Content Include="Views\cuentas\Delete.cshtml" />
+    <Content Include="Views\cuentas\Details.cshtml" />
+    <Content Include="Views\cuentas\Edit.cshtml" />
+    <Content Include="Views\cuentas\Index.cshtml" />
+    <Content Include="Views\tcuentas\Create.cshtml" />
+    <Content Include="Views\tcuentas\Delete.cshtml" />
+    <Content Include="Views\tcuentas\Details.cshtml" />
+    <Content Include="Views\tcuentas\Edit.cshtml" />
+    <Content Include="Views\tcuentas\Index.cshtml" />
+    <Content Include="Views\t_transaccion\Create.cshtml" />
+    <Content Include="Views\t_transaccion\Delete.cshtml" />
+    <Content Include="Views\t_transaccion\Details.cshtml" />
+    <Content Include="Views\t_transaccion\Edit.cshtml" />
+    <Content Include="Views\t_transaccion\Index.cshtml" />
+    <Content Include="Views\transacciones\Create.cshtml" />
+    <Content Include="Views\transacciones\Delete.cshtml" />
+    <Content Include="Views\transacciones\Details.cshtml" />
+    <Content Include="Views\transacciones\Edit.cshtml" />
+    <Content Include="Views\transacciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +227,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109272256510_MigracionInicial.resx">
+      <DependentUpon>202109272256510_MigracionInicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
